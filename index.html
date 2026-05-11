@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maisto Pasaulis</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#fff5ee,#ffe0d2);
+    color:#333;
+    line-height:1.6;
+}
+
+/* NAVBAR */
+
+header{
+    background:rgba(255,107,53,0.95);
+    padding:20px 40px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    backdrop-filter:blur(10px);
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    max-width:1300px;
+    margin:auto;
+}
+
+.logo{
+    color:white;
+    font-size:32px;
+    font-weight:bold;
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:#ffe66d;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
+    url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1600&auto=format&fit=crop')
+    center/cover no-repeat;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:40px;
+}
+
+.hero-content{
+    max-width:800px;
+    background:rgba(255,255,255,0.08);
+    padding:50px;
+    border-radius:25px;
+    backdrop-filter:blur(10px);
+    box-shadow:0 10px 40px rgba(0,0,0,0.25);
+}
+
+.hero h1{
+    font-size:70px;
+    margin-bottom:20px;
+    color:white;
+}
+
+.hero p{
+    font-size:24px;
+    margin-bottom:30px;
+    color:#f1f1f1;
+}
+
+.hero button{
+    padding:16px 40px;
+    border:none;
+    background:#ff6b35;
+    color:white;
+    font-size:18px;
+    border-radius:50px;
+    cursor:pointer;
+    transition:0.3s;
+    font-weight:bold;
+}
+
+.hero button:hover{
+    background:#ff3d00;
+    transform:scale(1.05);
+}
+
+/* SECTIONS */
+
+section{
+    padding:90px 30px;
+}
+
+.container{
+    max-width:1300px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    font-size:48px;
+    margin-bottom:50px;
+    color:#ff6b35;
+}
+
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:35px;
+}
+
+.card{
+    background:white;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.12);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-12px);
+    box-shadow:0 15px 40px rgba(0,0,0,0.2);
+}
+
+.card img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:25px;
+    text-align:center;
+}
+
+.card-content h3{
+    margin-bottom:15px;
+    color:#ff6b35;
+    font-size:28px;
+}
+
+.card-content p{
+    margin-bottom:12px;
+    color:#555;
+}
+
+/* GALLERY */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    border-radius:20px;
+    transition:0.4s;
+    box-shadow:0 5px 20px rgba(0,0,0,0.15);
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.stat-box{
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.stat-box:hover{
+    transform:translateY(-10px);
+}
+
+.stat-box h3{
+    font-size:45px;
+    color:#ff6b35;
+    margin-bottom:10px;
+}
+
+/* NEWSLETTER */
+
+.newsletter{
+    background:linear-gradient(135deg,#ff6b35,#ff3d00);
+    padding:60px 40px;
+    border-radius:30px;
+    text-align:center;
+    color:white;
+    box-shadow:0 10px 40px rgba(0,0,0,0.2);
+}
+
+.newsletter h2{
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.newsletter p{
+    margin-bottom:30px;
+    font-size:18px;
+}
+
+.newsletter-form{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.newsletter-form input{
+    padding:15px 20px;
+    border:none;
+    border-radius:50px;
+    width:320px;
+    font-size:16px;
+}
+
+.newsletter-form button{
+    padding:15px 35px;
+    border:none;
+    border-radius:50px;
+    background:white;
+    color:#ff6b35;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.newsletter-form button:hover{
+    transform:scale(1.05);
+}
+
+/* FOOTER */
+
+footer{
+    background:#1f1f1f;
+    color:white;
+    text-align:center;
+    padding:50px 20px;
+    margin-top:50px;
+}
+
+footer h3{
+    margin-bottom:15px;
+    font-size:30px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .hero p{
+        font-size:20px;
+    }
+
+    .section-title{
+        font-size:38px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header>
+    <nav class="navbar">
+
+        <div class="logo">🍔 Maisto Pasaulis</div>
+
+        <ul class="nav-links">
+            <li><a href="#apie">Apie</a></li>
+            <li><a href="#receptai">Receptai</a></li>
+            <li><a href="#galerija">Galerija</a></li>
+            <li><a href="#atsiliepimai">Atsiliepimai</a></li>
+            <li><a href="#kontaktai">Kontaktai</a></li>
+        </ul>
+
+    </nav>
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>Skaniausi Patiekalai</h1>
+
+        <p>Atrask gardžiausius receptus ir maisto idėjas vienoje vietoje</p>
+
+        <button>Peržiūrėti receptus</button>
+
+    </div>
+
+</section>
+
+<!-- APIE -->
+
+<section id="apie">
+<div class="container">
+
+    <h2 class="section-title">Apie Mus</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="card-content">
+                <h3>Sveikas Maistas</h3>
+                <p>Švieži ingredientai ir gardūs receptai kiekvienai dienai.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="card-content">
+                <h3>Greiti Receptai</h3>
+                <p>Paprasti ir greitai pagaminami patiekalai.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="card-content">
+                <h3>Desertai</h3>
+                <p>Nuostabūs desertai tikriems smaližiams.</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+<!-- RECEPTAI -->
+
+<section id="receptai">
+<div class="container">
+
+    <h2 class="section-title">Receptai</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="card-content">
+                <h3>Vištienos kepsnys</h3>
+
+                <p>Puikiai tinka vakarienei su daržovėmis.</p>
+
+                <p><b>Trumpas receptas:</b> Vištieną pagardink prieskoniais, apkepk keptuvėje apie 10 min. ir patiek su daržovėmis.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="card-content">
+                <h3>Pusryčiai</h3>
+
+                <p>Sveiki ir energingi pusryčiai kiekvienam rytui.</p>
+
+                <p><b>Trumpas receptas:</b> Apkepk kiaušinius, pridėk avokado ir vaisių.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="card-content">
+                <h3>Steikas</h3>
+
+                <p>Sultingas jautienos steikas gurmanams.</p>
+
+                <p><b>Trumpas receptas:</b> Kepk steiką po 3–4 minutes iš kiekvienos pusės.</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+<!-- STATISTIKA -->
+
+<section id="statistika">
+<div class="container">
+
+    <h2 class="section-title">Kodėl žmonės renkasi mus?</h2>
+
+    <div class="stats">
+
+        <div class="stat-box">
+            <h3>500+</h3>
+            <p>Receptų</p>
+        </div>
+
+        <div class="stat-box">
+            <h3>10K+</h3>
+            <p>Lankytojų</p>
+        </div>
+
+        <div class="stat-box">
+            <h3>120+</h3>
+            <p>Maisto idėjų</p>
+        </div>
+
+        <div class="stat-box">
+            <h3>24/7</h3>
+            <p>Nauji receptai</p>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+<!-- GALERIJA -->
+
+<section id="galerija">
+<div class="container">
+
+    <h2 class="section-title">Maisto Galerija</h2>
+
+    <div class="gallery">
+
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop">
+
+        <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?q=80&w=1200&auto=format&fit=crop">
+
+        <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1200&auto=format&fit=crop">
+
+        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=1200&auto=format&fit=crop">
+
+    </div>
+
+</div>
+</section>
+
+<!-- ATSILIEPIMAI -->
+
+<section id="atsiliepimai">
+<div class="container">
+
+    <h2 class="section-title">Lankytojų Atsiliepimai</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="card-content">
+                <h3>⭐⭐⭐⭐⭐</h3>
+                <p>„Labai graži svetainė ir receptai tikrai skanūs!“</p>
+                <b>- Tomas</b>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <h3>⭐⭐⭐⭐⭐</h3>
+                <p>„Modernus dizainas ir daug gerų idėjų.“</p>
+                <b>- Ieva</b>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <h3>⭐⭐⭐⭐⭐</h3>
+                <p>„Labai patiko receptų pasirinkimas.“</p>
+                <b>- Lukas</b>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+<!-- NEWSLETTER -->
+
+<section id="newsletter">
+<div class="container">
+
+    <div class="newsletter">
+
+        <h2>Gauk Naujausius Receptus</h2>
+
+        <p>Prenumeruok naujienlaiškį ir gauk skaniausius receptus pirmas.</p>
+
+        <div class="newsletter-form">
+            <input type="email" placeholder="Įvesk savo el. paštą">
+            <button>Prenumeruoti</button>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+<!-- KONTAKTAI -->
+
+<section id="kontaktai">
+<div class="container">
+
+    <h2 class="section-title">Kontaktai</h2>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="card-content">
+
+                <h3>Susisiek su mumis</h3>
+
+                <p>El. paštas: info@maistas.lt</p>
+
+                <p>Telefonas: +370 600 00000</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h3>🍕 Maisto Pasaulis</h3>
+
+    <p>Skoniai, receptai ir geriausi patiekalai vienoje vietoje.</p>
+
+</footer>
+
+</body>
+</html>
